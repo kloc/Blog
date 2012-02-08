@@ -1,0 +1,29 @@
+<html>
+
+ <head>
+  <title>{% block title %}{% endblock %}</title>
+  <!--<link rel="stylesheet" type="text/css" href="templates/st.css"/>-->
+ </head>
+ 
+ <body>
+ {% load url from future %}
+ <table width="1000px" class="full" align="center">
+  <tr>
+   <td>
+	{% block menu %}
+	 <a href="{% url 'views.List_of_posts'%}">all posts</a>
+	 <a href="{% url 'views.List_of_my_posts'%}">my posts</a>
+	 <a href="{% url 'views.Create'%}">create post</a>
+	 <a href="{% url 'views.Profile'%}">profile</a>
+	 <a href="{% url 'views.Logout'%}">exit</a>	 
+	{% endblock %}
+    {% block content %}{% endblock %}
+	{% block coments %}{% endblock %}
+   </td>
+  </tr>  
+ </table>
+
+ 
+ </body>
+ <!-- -->
+</html>

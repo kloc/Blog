@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+
+  <form action="" method="GET">
+    <label for="username">Login:</label>
+    <input type="text" name="username1">
+    <label for="password">Password:</label>
+    <input type="password" name="password1">
+
+    <input type="submit" value="Login" />
+  </form>
+  {% if error %}
+     <p style="color: red;">Please try again.</p>
+  {% endif %}
+  {% load url from future %}
+  <br><a href="{% url 'views.Reg'%}">Registration</a></br>
+</body>
+</html>
+
+<!-- value="" id="username1"  value="" id="password1"-->

@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+		{% if necessary_forms_are_empty %}
+	<p style="color: red;">*necessary forms are empty</p>
+		{% endif %}
+  <form action="" method="GET">
+    <br><label for="username">Login:</label>
+    <input type="text" name="username" value={{ username }}>
+		{% if error_len_login %}
+	<p style="color: red;">*maximum length of the field should not exceed 30 characters. </p>
+		{% endif %}</br>
+		{% if error_no_unique_login %}
+	<p style="color: red;">*this username already exists. </p>
+		{% endif %}
+	<br><label for="first_name">First name:</label>
+    <input type="text" name="first_name" value={{ first_name }}>
+		{% if error_len_fname %}
+	<p style="color: red;">*maximum length of the field should not exceed 30 characters. </p>
+		{% endif %}</br>
+
+    <br><label for="last_name">Last name:</label>
+    <input type="text" name="last_name" value={{ last_name }}>
+		{% if error_len_lname %}
+	<p style="color: red;">*maximum length of the field should not exceed 30 characters. </p>
+		{% endif %}</br>
+
+    <br><label for="email">E-mail:</label>
+    <input type="email" name="email" value={{ email }}>
+		{% if error_len_email %}
+	<p style="color: red;">*maximum length of the field should not exceed 30 characters. </p>
+		{% endif %}</br>
+		{% if error_no_unique_email %}
+	<p style="color: red;">*an e-mail already exists. </p>
+		{% endif %}
+
+    <br><label for="password1">Password:</label>
+    <input type="password" name="password1" value={{ password }}>
+		{% if error_len_password %}
+	<p style="color: red;">*maximum length of the field should not exceed 30 characters</p>
+		{% endif %}</br>
+    <br><input type="submit" value="Reg" /></br>
+  </form>
+</body>
+</html>
+
+<!-- value="" id="username1"  value="" id="password1"-->

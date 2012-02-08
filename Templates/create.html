@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block title %}list{% endblock %}
+
+{% block content %}
+<br>{{ User_id }}</br>
+{% load url from future %}
+  <form action="" method="GET">
+
+    <br><label for="title">Title:</label>
+    <input type="text" name="title">
+		{% if error_len_title %}
+	<p style="color: red;">*maximum length of the field should not exceed 250 characters. </p>
+		{% endif %}</br>
+		
+    <br><label for="content">Content:</label>
+    <textarea name="content"></textarea></br>
+	
+    <br><label for="check_coments">resolve comments </label>
+    <input type="checkbox" name="coments_permission" value="True"></br>	
+		
+    <br><input type="submit" value="Create" /></br>
+		{% if necessary_forms_are_empty %}
+	<p style="color: red;">*necessary forms are empty</p>
+		{% endif %}
+</form>
+{% endblock %}

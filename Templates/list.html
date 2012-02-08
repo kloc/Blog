@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block title %}list{% endblock %}
+
+{% block content %}
+<br>{{ User_id }}</br>
+{% load url from future %}
+{% load pagination_tags %}
+{% if posts %}
+    <p>Found {{ posts|length }} posts{{ post|pluralize }}.</p>
+        {% autopaginate posts 10 %}
+		{% for post in posts %}
+        <br>
+		 <a href="{% url 'views.View_post' id=post.id %}"><h3>{{ post.title }}</h3></a>
+		 <h4>{{ post.date }}</h4>
+		 {% if users_name %}
+		 <h4>{{ post.user.username }}</h4>
+		 {% endif %}
+		 <p>{{ post.content|slice:":200" }}</p>
+		</br>
+        {% endfor %}
+		{% paginate %}
+{% else %}
+    <p>No posts</p>
+{% endif %}
+{% endblock %}

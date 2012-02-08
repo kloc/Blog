@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block title %}list{% endblock %}
+
+{% block content %}
+{% load pagination_tags %}
+{% if view_post %}
+        <br>
+		 <h3>{{ view_post.title }}</h3>
+		 <h4>{{ view_post.date }}</h4>
+		 <h4>{{ view_post.user.username }}</h4>
+		 <p>{{ view_post.content }}</p>
+		</br>
+		{% if view_post.coments_permission %}
+		{% autopaginate coments 10 %}
+		{% for coment in coments %}	 
+		<br>
+		 <h4>{{ coment.user }}</h4>
+		 <p>{{ coment.content }}</p>
+		</br>
+		{% endfor %}
+		{% paginate %}
+		  {% if error %}
+			<p style="color: red;">*comments should be no longer than 10 characters</p>
+		  {% endif %}
+		<form action="" method="GET">
+		<br><label for="content">Add comment:</label>
+		<textarea name="content"></textarea></br>
+		<br><input type="submit" value="View_post" /></br>
+		</form>
+		{% endif %}
+
+{% else %}
+    <p>No post</p>
+{% endif %}
+
+
+
+{% endblock %}
